@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dodaj ofertę matrymonialną — Droga do Miłości</title>
+<meta name="description" content="Formularz zgłoszeniowy oferty matrymonialnej. Wybierz pakiet, uzupełnij dane i załącz do trzech zdjęć.">
+<link rel="preload" href="assets/fonts/fraunces-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/karla-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=03879633">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%231E4636%22/><text x=%2232%22 y=%2244%22 font-size=%2238%22 text-anchor=%22middle%22 fill=%22%23FBFAF7%22 font-family=%22Georgia,serif%22>D</text></svg>">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="">
+
+<div class="topbar">
+  <div class="wrap">
+    <div>Kontakt codziennie 11.00–18.00 · <a href="tel:+48731535676">+48 731 535 676</a></div>
+    <div class="topbar__note">Biuro Matrymonialne · Kędzierzyn-Koźle</div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">Droga do <em>Miłości</em></span>
+      <span class="brand__sub">Biuro Matrymonialne</span>
+    </a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="index.html#jak-to-dziala">Jak to działa</a></li>
+        <li><a href="pakiety.html">Pakiety</a></li>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary nav__cta" href="dodaj-oferte.html">Dodaj ofertę</a>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap pagehead__inner">
+    <div class="crumbs"><a href="index.html">Strona główna</a> &nbsp;/&nbsp; Dodaj ofertę</div>
+    <div class="eyebrow">Formularz zgłoszeniowy</div>
+    <h1 style="font-size:clamp(2.1rem, 1.6rem + 2.2vw, 3.2rem)">Dodaj swoją ofertę matrymonialną</h1>
+    <p class="lead" style="margin-top:22px">Wypełnij formularz z uwagą. Im więcej szczerych informacji podasz, tym większa szansa na poznanie właściwej Kobiety. Zgłoszenie czyta doradca Biura przed publikacją.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap form-layout">
+    <form id="oferta-form" novalidate>
+
+      <div class="form-step" id="krok-1">
+        <div class="form-step__head"><span class="form-step__num">KROK 01</span><h2>Wybierz pakiet</h2></div>
+        <p class="form-step__hint">Obie oferty publikowane są na zawsze. Pakiet 99 zł dodatkowo otwiera czat w grupie.</p>
+        <div class="pickers">
+          <label class="picker">
+            <input type="radio" name="pakiet" value="49">
+            <span class="picker__dot"></span>
+            <span class="picker__price">49 zł</span>
+            <span class="picker__name">Publikacja oferty</span>
+            <span class="picker__desc">Ogłoszenie w sześciu grupach i na dwóch stronach. To Kobiety piszą do Ciebie.</span>
+          </label>
+          <label class="picker">
+            <input type="radio" name="pakiet" value="99">
+            <span class="picker__dot"></span>
+            <span class="picker__flag">Najczęściej wybierany</span>
+            <span class="picker__price">99 zł</span>
+            <span class="picker__name">Oferta + czat w grupie</span>
+            <span class="picker__desc">Wszystko z pakietu 49 zł, czat w grupie i dwie strony — dostęp do ponad 11 tysięcy Kobiet. Ty piszesz pierwszy.</span>
+          </label>
+        </div>
+        <div class="form-msg" data-msg-plan>Prosimy wybrać pakiet, aby kontynuować.</div>
+      </div>
+
+      <div class="form-step" id="krok-2">
+        <div class="form-step__head"><span class="form-step__num">KROK 02</span><h2>Twoje dane</h2></div>
+        <p class="form-step__hint">Pola oznaczone gwiazdką są wymagane. Dane kontaktowe trafiają wyłącznie do Kobiet zainteresowanych Twoją ofertą.</p>
+        <div class="grid-2">
+          <div class="field"><label for="imie">Imię / Imiona <span class="req">*</span></label><input id="imie" name="imie" type="text" required autocomplete="given-name"></div>
+          <div class="field"><label for="nazwisko">Nazwisko <span class="req">*</span></label><input id="nazwisko" name="nazwisko" type="text" required autocomplete="family-name"></div>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="field"><label for="wiek">Wiek <span class="req">*</span></label><input id="wiek" name="wiek" type="number" min="18" max="99" required></div>
+          <div class="field"><label for="wzrost">Wzrost (cm) <span class="req">*</span></label><input id="wzrost" name="wzrost" type="number" min="120" max="230" required></div>
+          <div class="field"><label for="waga">Waga (kg) <span class="req">*</span></label><input id="waga" name="waga" type="number" min="40" max="250" required></div>
+        </div>
+        <div class="grid-2" style="margin-top:18px">
+          <div class="field"><label for="telefon">Telefon <span class="req">*</span></label><input id="telefon" name="telefon" type="tel" required autocomplete="tel"></div>
+          <div class="field"><label for="email">E-mail <span class="req">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="miejscowosc">Miejscowość zamieszkania / Państwo <span class="req">*</span></label><input id="miejscowosc" name="miejscowosc" type="text" required></div>
+          <div class="field"><label for="zawod">Zawód <span class="req">*</span></label><input id="zawod" name="zawod" type="text" required></div>
+          <div class="field">
+            <label for="wyksztalcenie">Wykształcenie <span class="req">*</span></label>
+            <select id="wyksztalcenie" name="wyksztalcenie" required>
+              <option value="">— wybierz —</option><option>Podstawowe</option><option>Zawodowe</option><option>Średnie</option><option>Wyższe</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="stan">Stan cywilny <span class="req">*</span></label>
+            <select id="stan" name="stan" required>
+              <option value="">— wybierz —</option><option>Kawaler</option><option>Rozwiedziony</option><option>Wdowiec</option><option>W separacji</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="zodiak">Znak zodiaku</label>
+            <select id="zodiak" name="zodiak">
+              <option value="">— wybierz —</option><option>Baran</option><option>Byk</option><option>Bliźnięta</option><option>Rak</option><option>Lew</option><option>Panna</option><option>Waga</option><option>Skorpion</option><option>Strzelec</option><option>Koziorożec</option><option>Wodnik</option><option>Ryby</option>
+            </select>
+          </div>
+          <div class="field"><label for="jezyki">Znajomość języków <span class="req">*</span></label><input id="jezyki" name="jezyki" type="text" required placeholder="np. polski, rosyjski"></div>
+          <div class="field field--full"><label for="zainteresowania">Zainteresowania <span class="req">*</span></label><input id="zainteresowania" name="zainteresowania" type="text" required></div>
+          <div class="field"><label for="wiek-partnerki">Wiek poszukiwanej Partnerki <span class="req">*</span></label><input id="wiek-partnerki" name="wiek-partnerki" type="text" required placeholder="np. 35–50 lat"></div>
+          <div class="field">
+            <label for="dzieci">Czy Kobieta może mieć dzieci? <span class="req">*</span></label>
+            <select id="dzieci" name="dzieci" required>
+              <option value="">— wybierz —</option><option>Tak</option><option>Nie</option><option>Nie ma to znaczenia</option>
+            </select>
+          </div>
+          <div class="field field--full"><label for="o-sobie">Kilka słów o sobie <span class="req">*</span></label><textarea id="o-sobie" name="o-sobie" required placeholder="Napisz szczerze, kim jesteś i jakiego związku szukasz. Ten opis czytają Kobiety."></textarea></div>
+          <div class="field field--full"><label for="uwagi">Uwagi dla Biura</label><textarea id="uwagi" name="uwagi" placeholder="np. prośba o nieudostępnianie wybranego kontaktu"></textarea></div>
+        </div>
+        <div class="form-msg" data-msg-data>Prosimy uzupełnić zaznaczone pola.</div>
+      </div>
+
+      <div class="form-step" id="krok-3">
+        <div class="form-step__head"><span class="form-step__num">KROK 03</span><h2>Załącz zdjęcia</h2></div>
+        <p class="form-step__hint">Dodaj maksymalnie trzy zdjęcia. Wyraźne, aktualne zdjęcia znacząco zwiększają zainteresowanie ofertą.</p>
+        <div class="uploads">
+          <label class="upload"><input type="file" accept="image/*"><span class="upload__plus">+</span><span>Zdjęcie 1</span><button class="upload__clear" type="button" aria-label="Usuń zdjęcie">&times;</button></label>
+          <label class="upload"><input type="file" accept="image/*"><span class="upload__plus">+</span><span>Zdjęcie 2</span><button class="upload__clear" type="button" aria-label="Usuń zdjęcie">&times;</button></label>
+          <label class="upload"><input type="file" accept="image/*"><span class="upload__plus">+</span><span>Zdjęcie 3</span><button class="upload__clear" type="button" aria-label="Usuń zdjęcie">&times;</button></label>
+        </div>
+      </div>
+
+      <div class="form-step" id="krok-4">
+        <div class="form-step__head"><span class="form-step__num">KROK 04</span><h2>Zgody i płatność</h2></div>
+        <p class="form-step__hint">Wszystkie cztery oświadczenia są wymagane do realizacji usługi.</p>
+        <div class="consents">
+          <label class="consent"><input type="checkbox" required><span>Zapoznałem się z <a href="regulamin.html">Regulaminem Polskiego Biura Matrymonialnego</a> i akceptuję jego postanowienia.</span></label>
+          <label class="consent"><input type="checkbox" required><span>Oświadczam, że jestem autorem treści zawartych w zgłoszeniu oraz że nie naruszają one jakichkolwiek praw osób trzecich.</span></label>
+          <label class="consent"><input type="checkbox" required><span>Zapoznałem się z <a href="rodo.html">Klauzulą Informacyjną RODO</a> i wyrażam zgodę na przetwarzanie moich danych osobowych, w tym wizerunku, oraz na udostępnienie podanych przeze mnie danych kontaktowych Kobietom w celu realizacji usługi matrymonialnej.</span></label>
+          <label class="consent"><input type="checkbox" required><span>Żądam rozpoczęcia świadczenia usługi przed upływem 14-dniowego terminu odstąpienia od umowy i przyjmuję do wiadomości, że po pełnym wykonaniu usługi, to jest po opublikowaniu mojego ogłoszenia oraz, w przypadku pakietu 99 zł, po dodaniu mnie do grupy, tracę prawo odstąpienia od umowy i zwrot pieniędzy nie przysługuje.</span></label>
+        </div>
+        <div class="form-msg" data-msg-consents>Prosimy zaznaczyć wszystkie cztery zgody, aby przejść do płatności.</div>
+        <button class="btn btn--primary btn--wide" type="submit" data-pay style="margin-top:26px">Wybierz pakiet, aby zapłacić</button>
+        <p style="margin-top:14px;font-size:.88rem;color:var(--ink-3);text-align:center">Płatność szyfrowana. Dane traktujemy z pełną dyskrecją.</p>
+      </div>
+    </form>
+
+    <aside class="summary">
+      <div class="summary__head">Twoje zgłoszenie</div>
+      <div class="summary__body">
+        <div class="summary__row"><span>Pakiet</span><b data-sum-plan>nie wybrano</b></div>
+        <div class="summary__row"><span>Zakres</span><b data-sum-scope>—</b></div>
+        <div class="summary__row"><span>Czas publikacji</span><b>na zawsze</b></div>
+        <div class="summary__row"><span>Weryfikacja</span><b>doradca Biura</b></div>
+        <div class="summary__total"><span>Do zapłaty</span><b data-sum-total>— zł</b></div>
+        <p class="summary__note">Opłata jest jednorazowa — bez abonamentu i bez przedłużania. Potwierdzenie publikacji wysyłamy na podany adres e-mail.</p>
+        <p class="summary__note">Masz pytania przed wysłaniem zgłoszenia? Zadzwoń: <a href="tel:+48731535676" style="color:var(--ink)">+48 731 535 676</a>, codziennie 11.00–18.00.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="modal" id="pay-modal" role="dialog" aria-modal="true">
+  <div class="modal__box">
+    <div data-modal-wait>
+      <div class="spinner"></div>
+      <h3>Przetwarzanie płatności…</h3>
+      <p>Prosimy o chwilę cierpliwości.</p>
+    </div>
+    <div data-modal-done style="display:none">
+      <h3>Dziękujemy za zgłoszenie</h3>
+      <p>W wersji produkcyjnej w tym miejscu następuje przekierowanie do bramki płatności, a po zaksięgowaniu wpłaty zgłoszenie trafia do doradcy Biura i na Twój e-mail.</p>
+      <span class="demo-flag">Wersja demonstracyjna — płatność nie została pobrana</span>
+      <div class="btn-row" style="justify-content:center"><button class="btn btn--dark" type="button" data-modal-close>Zamknij</button></div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="brand__mark">Droga do Miłości</span>
+        <p>Biuro matrymonialne kojarzące samotnych mężczyzn z Kobietami ze Wschodu Europy. Poważnie, dyskretnie, bez terminów ważności ogłoszenia.</p>
+      </div>
+      <div>
+        <h4>Serwis</h4>
+        <ul>
+          <li><a href="index.html#jak-to-dziala">Jak to działa</a></li>
+          <li><a href="pakiety.html">Pakiety 49 zł i 99 zł</a></li>
+          <li><a href="dodaj-oferte.html">Dodaj ofertę</a></li>
+          <li><a href="o-nas.html">O nas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Dokumenty</h4>
+        <ul>
+          <li><a href="regulamin.html">Regulamin</a></li>
+          <li><a href="rodo.html">Klauzula RODO</a></li>
+          <li><a href="rodo.html#prywatnosc">Polityka prywatności</a></li>
+          <li><a href="rodo.html#cookies">Polityka cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+48731535676">+48 731 535 676</a></li>
+          <li><a href="mailto:ukrainki.samotne@o2.pl">ukrainki.samotne@o2.pl</a></li>
+          <li>47-200 Kędzierzyn-Koźle<br>ul. Ignacego Łukasiewicza 3<br>skrytka pocztowa 35</li>
+          <li><a href="https://www.facebook.com/profile.php?id=100050317462253" target="_blank" rel="noopener">Facebook: Samotne Ukrainki</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© 2026 Droga do Miłości — Biuro Matrymonialne. Wszelkie prawa zastrzeżone.</div>
+      <div>Wersja demonstracyjna strony · Impulseo</div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookiebar">
+  <p>Używamy wyłącznie niezbędnych plików cookies, potrzebnych do prawidłowego działania strony i zapamiętania tej zgody. Szczegóły w <a href="rodo.html#cookies">Polityce cookies</a>.</p>
+  <button class="btn btn--dark" data-cookie-accept type="button">Rozumiem</button>
+</div>
+
+<script src="assets/app.js?v=7e445b23" defer></script>
+</body>
+</html>
