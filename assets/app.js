@@ -38,22 +38,6 @@
     });
   });
 
-  /* --- baner cookies --- */
-  var bar = document.querySelector('.cookiebar');
-  if (bar) {
-    var KEY = 'ddm_cookies_ok';
-    var stored = null;
-    try { stored = localStorage.getItem(KEY); } catch (e) {}
-    if (!stored) { setTimeout(function () { bar.classList.add('is-visible'); }, 900); }
-    var ok = bar.querySelector('[data-cookie-accept]');
-    if (ok) {
-      ok.addEventListener('click', function () {
-        bar.classList.remove('is-visible');
-        try { localStorage.setItem(KEY, '1'); } catch (e) {}
-      });
-    }
-  }
-
   /* --- formularz oferty --- */
   var form = document.querySelector('#oferta-form');
   if (!form) return;
