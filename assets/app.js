@@ -1,161 +1,183 @@
-/* Droga do Miłości — skrypty strony (demo) */
+/* Droga do Miłości — demo (statyczny front, bez backendu) */
 (function () {
   'use strict';
 
-  /* --- nawigacja mobilna --- */
-  var nav = document.querySelector('.nav');
-  var burger = document.querySelector('.nav__burger');
-  if (nav && burger) {
-    burger.addEventListener('click', function () {
-      nav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', nav.classList.contains('is-open'));
-    });
-    nav.querySelectorAll('.nav__links a').forEach(function (a) {
-      a.addEventListener('click', function () { nav.classList.remove('is-open'); });
-    });
-  }
-
-  /* --- delikatne pojawianie się sekcji --- */
-  var revealables = document.querySelectorAll('.reveal');
-  if (revealables.length && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealables.forEach(function (el) { io.observe(el); });
-  } else {
-    revealables.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* --- FAQ --- */
-  document.querySelectorAll('.faq__q').forEach(function (q) {
-    q.addEventListener('click', function () {
-      var item = q.closest('.faq__item');
-      var open = item.classList.contains('is-open');
-      item.classList.toggle('is-open', !open);
-      q.setAttribute('aria-expanded', String(!open));
-    });
-  });
-
-  /* --- formularz oferty --- */
-  var form = document.querySelector('#oferta-form');
-  if (!form) return;
-
   var PLANS = {
-    '49': { name: 'Publikacja oferty', price: 49, scope: 'Ogłoszenie w 6 grupach i na 2 stronach' },
-    '99': { name: 'Oferta + czat w grupie', price: 99, scope: 'Ogłoszenie + czat w grupie i 2 strony' }
+    '49': {
+      label: 'Pakiet 49 zł — publikacja oferty',
+      summary: 'Twoja oferta zostaje opublikowana <strong>na zawsze</strong> w sześciu grupach i na dwóch stronach na Facebooku dla Kobiet ze Wschodu Europy. Zainteresowane Kobiety skontaktują się z Tobą bezpośrednio.'
+    },
+    '99': {
+      label: 'Pakiet 99 zł — oferta + czat w grupie',
+      summary: 'Twoja oferta zostaje opublikowana <strong>na zawsze</strong>, a Ty zostajesz dodany do <strong>czatu w grupie na Facebooku</strong> (ponad 7 tysięcy Kobiet) — ogłoszenie trafia dodatkowo na dwie strony, które obserwuje 5 tysięcy Kobiet. Możesz pisać pierwszy.'
+    }
   };
 
-  var sumPlan = document.querySelector('[data-sum-plan]');
-  var sumScope = document.querySelector('[data-sum-scope]');
-  var sumTotal = document.querySelector('[data-sum-total]');
-  var payBtn = document.querySelector('[data-pay]');
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* --- header: cień po przewinięciu --- */
+  var header = document.getElementById('site-header');
+  function onScroll() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 20);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --- menu mobilne --- */
+  var burger = document.querySelector('.burger');
+  var mobilenav = document.querySelector('.mobilenav');
+  if (burger && mobilenav) {
+    burger.addEventListener('click', function () {
+      var open = mobilenav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    mobilenav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { mobilenav.classList.remove('is-open'); });
+    });
+  }
+
+  /* --- pojawianie się sekcji --- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    revealables.forEach(function (el) { io.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* --- podświetlenie aktywnej pozycji w menu --- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.mainnav a'));
+  var sections = navLinks
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  if (sections.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* --- formularz --- */
+  var form = document.getElementById('offer-form');
+  if (!form) return;
+
+  var payBtn = form.querySelector('[data-pay]');
 
   function currentPlan() {
     var checked = form.querySelector('input[name="pakiet"]:checked');
-    return checked ? PLANS[checked.value] : null;
+    return checked ? checked.value : null;
   }
 
-  function refreshSummary() {
+  function refreshPay() {
     var p = currentPlan();
-    if (sumPlan) sumPlan.textContent = p ? p.name : 'nie wybrano';
-    if (sumScope) sumScope.textContent = p ? p.scope : '—';
-    if (sumTotal) sumTotal.textContent = p ? p.price + ' zł' : '— zł';
-    if (payBtn) payBtn.textContent = p ? 'Zapłać bezpiecznie ' + p.price + ' zł' : 'Wybierz pakiet, aby zapłacić';
+    if (payBtn) payBtn.textContent = 'Zapłać bezpiecznie ' + (p || '49') + ' zł';
   }
 
   form.querySelectorAll('input[name="pakiet"]').forEach(function (i) {
-    i.addEventListener('change', refreshSummary);
+    i.addEventListener('change', function () {
+      refreshPay();
+      warn('[data-warn-pkg]', false);
+    });
   });
-  refreshSummary();
+  refreshPay();
 
-  /* podgląd zdjęć */
-  form.querySelectorAll('.upload input[type="file"]').forEach(function (input) {
-    var box = input.closest('.upload');
-    var clear = box.querySelector('.upload__clear');
+  /* wybór pakietu z sekcji cennika */
+  document.querySelectorAll('[data-pick]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var radio = form.querySelector('input[name="pakiet"][value="' + btn.getAttribute('data-pick') + '"]');
+      if (radio) { radio.checked = true; refreshPay(); }
+      document.getElementById('oferta').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* zdjęcia */
+  form.querySelectorAll('.dropzone').forEach(function (zone) {
+    var input = zone.querySelector('input[type="file"]');
+    var img = zone.querySelector('img');
+    var remove = zone.querySelector('.dropzone__remove');
     input.addEventListener('change', function () {
       var file = input.files && input.files[0];
-      box.querySelectorAll('img').forEach(function (i) { i.remove(); });
-      if (!file) { box.classList.remove('has-file'); return; }
-      var img = document.createElement('img');
-      img.alt = 'Podgląd zdjęcia';
+      if (!file) { zone.classList.remove('filled'); img.removeAttribute('src'); return; }
       img.src = URL.createObjectURL(file);
-      box.insertBefore(img, box.firstChild);
-      box.classList.add('has-file');
+      zone.classList.add('filled');
     });
-    if (clear) {
-      clear.addEventListener('click', function (e) {
-        e.preventDefault(); e.stopPropagation();
-        input.value = '';
-        box.querySelectorAll('img').forEach(function (i) { i.remove(); });
-        box.classList.remove('has-file');
-      });
-    }
+    remove.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      input.value = '';
+      img.removeAttribute('src');
+      zone.classList.remove('filled');
+    });
   });
 
-  function showMsg(sel, on) {
-    var el = document.querySelector(sel);
+  function warn(sel, on) {
+    var el = form.querySelector(sel);
     if (el) el.classList.toggle('is-visible', on);
   }
 
   function validate() {
-    var ok = true;
-    var firstBad = null;
+    var ok = true, firstBad = null;
 
     if (!currentPlan()) {
-      showMsg('[data-msg-plan]', true); ok = false;
-      firstBad = firstBad || document.querySelector('#krok-1');
-    } else { showMsg('[data-msg-plan]', false); }
+      warn('[data-warn-pkg]', true); ok = false;
+      firstBad = form.querySelector('.pkg-grid');
+    } else { warn('[data-warn-pkg]', false); }
 
-    form.querySelectorAll('[required]').forEach(function (el) {
-      if (el.type === 'checkbox') return;
-      var field = el.closest('.field');
+    var badField = false;
+    form.querySelectorAll('.field[required]').forEach(function (el) {
       var bad = !el.value.trim();
-      if (field) field.classList.toggle('is-invalid', bad);
-      if (bad) { ok = false; firstBad = firstBad || field; }
+      el.classList.toggle('is-invalid', bad);
+      if (bad) { badField = true; firstBad = firstBad || el; }
     });
-    showMsg('[data-msg-data]', !ok && !!form.querySelector('.field.is-invalid'));
+    warn('[data-warn-data]', badField);
+    if (badField) ok = false;
 
-    var consents = form.querySelectorAll('.consent input[type="checkbox"]');
     var allConsents = true;
-    consents.forEach(function (c) {
-      var bad = !c.checked;
-      c.closest('.consent').classList.toggle('is-invalid', bad);
-      if (bad) { allConsents = false; }
+    form.querySelectorAll('.consent').forEach(function (c) {
+      var bad = !c.querySelector('input').checked;
+      c.classList.toggle('is-invalid', bad);
+      if (bad) allConsents = false;
     });
-    if (!allConsents) { ok = false; firstBad = firstBad || document.querySelector('#krok-4'); }
-    showMsg('[data-msg-consents]', !allConsents);
+    warn('[data-warn-consents]', !allConsents);
+    if (!allConsents) { ok = false; firstBad = firstBad || form.querySelector('.consents'); }
 
     if (firstBad) firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return ok;
   }
 
-  var modal = document.querySelector('#pay-modal');
-  var modalWait = document.querySelector('[data-modal-wait]');
-  var modalDone = document.querySelector('[data-modal-done]');
+  var loading = document.getElementById('loading');
+  var success = document.getElementById('success');
+  var successBody = document.getElementById('success-body');
+  var closeSuccess = document.getElementById('close-success');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validate()) return;
-    if (!modal) return;
-    modal.classList.add('is-open');
-    if (modalWait) modalWait.style.display = 'block';
-    if (modalDone) modalDone.style.display = 'none';
+    var plan = PLANS[currentPlan()];
+    loading.classList.add('is-open');
     setTimeout(function () {
-      if (modalWait) modalWait.style.display = 'none';
-      if (modalDone) modalDone.style.display = 'block';
+      loading.classList.remove('is-open');
+      if (successBody) {
+        successBody.innerHTML =
+          '<p style="margin-bottom:1rem"><strong>' + plan.label + '</strong></p>' +
+          '<p>' + plan.summary + '</p>' +
+          '<p style="margin-top:1rem">Twoje zgłoszenie trafiło do doradcy Biura. Po sprawdzeniu ogłoszenia otrzymasz potwierdzenie publikacji na podany adres e-mail.</p>';
+      }
+      success.classList.add('is-open');
     }, 2200);
   });
 
-  document.querySelectorAll('[data-modal-close]').forEach(function (b) {
-    b.addEventListener('click', function () { modal.classList.remove('is-open'); });
-  });
-
-  /* wybór pakietu z adresu: dodaj-oferte.html?pakiet=99 */
-  var q = new URLSearchParams(window.location.search).get('pakiet');
-  if (q && PLANS[q]) {
-    var radio = form.querySelector('input[name="pakiet"][value="' + q + '"]');
-    if (radio) { radio.checked = true; refreshSummary(); }
+  if (closeSuccess) {
+    closeSuccess.addEventListener('click', function () { success.classList.remove('is-open'); });
   }
 })();
