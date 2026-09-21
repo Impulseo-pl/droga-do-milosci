@@ -5,7 +5,9 @@ Demo dla klienta, który dostał wcześniej niedokończoną wersję od innej fir
 ale zbudowana jest na stacku Impulseo i uzupełniona o poprawki przekazane przez klienta.
 
 ## Stack
-- jedna strona (`index.html`) z sekcjami kotwiczonymi: `#home`, `#jak`, `#pakiety`, `#oferta`, `#onas`, `#regulamin`, `#rodo`, `#kontakt`
+- strona główna (`index.html`) z sekcjami kotwiczonymi: `#home`, `#jak`, `#pakiety`, `#oferta`, `#onas`, `#kontakt`
+- podstrony prawne: `regulamin.html`, `rodo.html` (linki tylko w stopce i w zgodach formularza)
+- navbar: Strona główna, Pakiety, O nas, Kontakt + przycisk „Dodaj ofertę”
 - statyczny HTML bez build-stepu, własny CSS (bez Tailwinda)
 - fonty self-hosted: Cormorant Garamond + Jost (`assets/fonts`)
 - cache-buster `?v=md5` odświeżany przez `./bust.sh`

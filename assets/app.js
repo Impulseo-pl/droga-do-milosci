@@ -52,7 +52,8 @@
   }
 
   /* --- podświetlenie aktywnej pozycji w menu --- */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.mainnav a'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.mainnav a'))
+    .filter(function (a) { return a.getAttribute('href').charAt(0) === '#'; });
   var sections = navLinks
     .map(function (a) { return document.querySelector(a.getAttribute('href')); })
     .filter(Boolean);

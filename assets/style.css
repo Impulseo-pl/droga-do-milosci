@@ -34,15 +34,15 @@ ul{margin:0;padding:0;list-style:none}
 ::selection{background:var(--burgundy);color:#fff}
 
 /* ============ POMOCNICZE ============ */
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-.wrap--narrow{max-width:880px}
-.wrap--mid{max-width:1060px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px}
+.wrap--narrow{max-width:1040px}
+.wrap--mid{max-width:1240px}
 .section{padding-block:clamp(4rem, 3rem + 4vw, 7.5rem)}
 .section--cream{background:var(--cream)}
 .section--beige{background:var(--beige-light)}
 .section--burgundy{background:var(--burgundy);color:var(--cream)}
 .center{text-align:center}
-.head{max-width:640px;margin:0 auto clamp(2.8rem, 2rem + 2.5vw, 4rem)}
+.head{max-width:780px;margin:0 auto clamp(2.8rem, 2rem + 2.5vw, 4rem)}
 .head--left{margin-left:0;text-align:left}
 
 .ornament{
@@ -115,18 +115,34 @@ ul{margin:0;padding:0;list-style:none}
     var(--burgundy-dark);
   background-size:cover;
 }
-.hero__inner{max-width:760px}
+.hero__inner{max-width:900px}
 .hero .ornament{color:rgba(233,221,202,.9)}
 .hero .ornament::after{background:linear-gradient(to right, rgba(233,221,202,.8), transparent)}
 .hero h1{font-size:clamp(2.7rem, 1.9rem + 4vw, 5rem);font-weight:600;line-height:1.05;margin-bottom:1.4rem}
 .hero h1 em{font-style:italic;color:var(--beige);display:block}
-.hero__lead{font-size:clamp(1.08rem, 1rem + .45vw, 1.3rem);color:rgba(250,246,239,.85);font-weight:300;max-width:620px;margin-bottom:2.2rem;line-height:1.7}
+.hero__lead{font-size:clamp(1.08rem, 1rem + .45vw, 1.3rem);color:rgba(250,246,239,.85);font-weight:300;max-width:720px;margin-bottom:2.2rem;line-height:1.7}
 .hero__btns{display:flex;flex-wrap:wrap;gap:16px}
-.hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:3.4rem;max-width:580px}
+.hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:3.4rem;max-width:680px}
 .hero__stat b{display:block;font-family:var(--font-serif);font-size:clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem);font-weight:600;color:var(--beige)}
 .hero__stat span{display:block;font-size:.86rem;color:rgba(250,246,239,.7);letter-spacing:.03em;margin-top:4px}
 .hero__arrow{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:rgba(250,246,239,.6);animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* ============ NAGŁÓWEK PODSTRONY ============ */
+.pagehead{
+  padding-top:150px;padding-bottom:70px;color:var(--cream);text-align:center;
+  background:
+    linear-gradient(160deg, rgba(77,22,32,.88) 0%, rgba(107,31,42,.72) 55%, rgba(43,43,43,.78) 100%),
+    radial-gradient(ellipse at 70% 10%, rgba(176,141,90,.3), transparent 55%),
+    var(--burgundy-dark);
+}
+.pagehead h1{font-size:clamp(2.4rem, 1.9rem + 2.4vw, 3.8rem);margin-bottom:1rem}
+.pagehead p{color:rgba(250,246,239,.82);font-weight:300;max-width:760px;margin:0 auto;line-height:1.75}
+.pagehead .ornament{color:rgba(233,221,202,.85)}
+.pagehead .ornament::before,.pagehead .ornament::after{background:linear-gradient(to right, transparent, rgba(233,221,202,.7), transparent)}
+.crumbs{margin-top:1.6rem;font-size:.86rem;color:rgba(250,246,239,.6)}
+.crumbs a{text-decoration:none;border-bottom:1px solid rgba(233,221,202,.5)}
+.crumbs a:hover{color:var(--beige)}
 
 /* ============ PASEK ZAUFANIA ============ */
 .trust{background:var(--burgundy-dark);color:rgba(250,246,239,.9)}
@@ -146,7 +162,7 @@ ul{margin:0;padding:0;list-style:none}
 /* ============ KARTY KROKÓW ============ */
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .card{
-  background:#fff;border:1px solid var(--beige);border-radius:20px;padding:36px;
+  background:#fff;border:1px solid var(--beige);border-radius:20px;padding:42px;
   box-shadow:0 1px 2px rgba(43,43,43,.04);transition:box-shadow .3s ease, transform .3s ease;
 }
 .card:hover{box-shadow:0 22px 45px -24px rgba(43,43,43,.45);transform:translateY(-4px)}
@@ -160,14 +176,14 @@ ul{margin:0;padding:0;list-style:none}
 .card p{color:rgba(43,43,43,.7);font-weight:300;line-height:1.75}
 
 /* ============ PORÓWNANIE PAKIETÓW ============ */
-.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1000px;margin:0 auto 2.6rem;text-align:center}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1240px;margin:0 auto 2.6rem;text-align:center}
 .compare__box{background:#fff;border:1px solid var(--beige);border-radius:18px;padding:18px 14px}
 .compare__label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .compare__box p{font-size:.92rem;color:rgba(43,43,43,.7);line-height:1.6}
 .compare__box b{color:var(--burgundy);font-weight:500}
 
 /* ============ PAKIETY ============ */
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;align-items:stretch}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1240px;margin:0 auto;align-items:stretch}
 .plan{display:flex;flex-direction:column;border-radius:26px;padding:clamp(2rem, 1.6rem + 1.2vw, 2.6rem)}
 .plan--basic{background:#fff;border:1px solid var(--beige);box-shadow:0 1px 2px rgba(43,43,43,.04)}
 .plan--basic:hover{box-shadow:0 24px 50px -26px rgba(43,43,43,.4)}
@@ -197,7 +213,7 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ============ OPINIE ============ */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.quote{background:rgba(138,44,57,.4);border:1px solid rgba(250,246,239,.15);border-radius:20px;padding:32px}
+.quote{background:rgba(138,44,57,.4);border:1px solid rgba(250,246,239,.15);border-radius:20px;padding:38px}
 .quote__stars{color:var(--gold);font-size:1.3rem;letter-spacing:.1em;margin-bottom:12px}
 .quote blockquote{margin:0 0 22px;font-weight:300;font-style:italic;color:rgba(250,246,239,.9);line-height:1.8}
 .quote figcaption{font-size:.9rem;color:var(--beige)}
@@ -272,7 +288,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml;charset=ut
 .promise__foot span{font-size:.8rem;color:rgba(43,43,43,.6);line-height:1.5}
 
 /* ============ REGULAMIN / RODO ============ */
-.doc{background:#fff;border:1px solid var(--beige);border-radius:26px;box-shadow:0 20px 45px -30px rgba(43,43,43,.5);padding:clamp(1.8rem, 1.4rem + 2vw, 3rem);display:grid;gap:2rem}
+.doc{background:#fff;border:1px solid var(--beige);border-radius:26px;box-shadow:0 20px 45px -30px rgba(43,43,43,.5);padding:clamp(1.8rem, 1.4rem + 2.4vw, 3.6rem);display:grid;gap:2rem}
 .doc__note{font-size:.9rem;font-style:italic;color:rgba(43,43,43,.55);background:var(--beige-light);border-radius:14px;padding:12px 18px}
 .doc h3{font-size:1.55rem;color:var(--charcoal);margin-bottom:.7rem}
 .doc p{color:rgba(43,43,43,.7);font-weight:300;line-height:1.8}
@@ -293,7 +309,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml;charset=ut
 .rodo p{color:rgba(43,43,43,.7);font-weight:300;line-height:1.8}
 
 /* ============ KONTAKT ============ */
-.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1240px;margin:0 auto}
 .contact{background:#fff;border:1px solid var(--beige);border-radius:20px;padding:32px;text-align:center;box-shadow:0 1px 2px rgba(43,43,43,.04);transition:box-shadow .3s ease,transform .3s ease}
 .contact:hover{box-shadow:0 22px 45px -26px rgba(43,43,43,.45);transform:translateY(-3px)}
 .contact__icon{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--beige-light);color:var(--burgundy);margin:0 auto 16px}
@@ -303,7 +319,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml;charset=ut
 .contact a{text-decoration:none}
 .contact a:hover{color:var(--burgundy)}
 .contact small{display:block;color:rgba(43,43,43,.5);font-size:.85rem;margin-top:6px;line-height:1.6}
-.contact-note{max-width:800px;margin:2.6rem auto 0;background:#fff;border:1px solid var(--beige);border-left:3px solid var(--gold);border-radius:18px;padding:22px 26px;color:rgba(43,43,43,.75);font-weight:300;line-height:1.75;font-size:.97rem}
+.contact-note{max-width:1000px;margin:2.6rem auto 0;background:#fff;border:1px solid var(--beige);border-left:3px solid var(--gold);border-radius:18px;padding:22px 26px;color:rgba(43,43,43,.75);font-weight:300;line-height:1.75;font-size:.97rem}
 .contact-note strong{color:var(--burgundy);font-weight:500}
 .contact-cta{text-align:center;margin-top:3rem}
 
