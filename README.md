@@ -6,8 +6,8 @@ ale zbudowana jest na stacku Impulseo i uzupełniona o poprawki przekazane przez
 
 ## Stack
 - strona główna (`index.html`) z sekcjami kotwiczonymi: `#home`, `#jak`, `#pakiety`, `#oferta`, `#onas`, `#kontakt`
-- podstrony prawne: `regulamin.html`, `rodo.html` (linki tylko w stopce i w zgodach formularza)
-- navbar: Strona główna, Pakiety, O nas, Kontakt + przycisk „Dodaj ofertę”
+- podstrony prawne: `regulamin.html`, `rodo.html` (linki w menu, stopce i zgodach formularza)
+- navbar: Strona główna, Pakiety, O nas, Kontakt, Regulamin, RODO + przycisk „Dodaj ofertę”
 - statyczny HTML bez build-stepu, własny CSS (bez Tailwinda)
 - fonty self-hosted: Cormorant Garamond + Jost (`assets/fonts`)
 - cache-buster `?v=md5` odświeżany przez `./bust.sh`
@@ -27,7 +27,16 @@ ale zbudowana jest na stacku Impulseo i uzupełniona o poprawki przekazane przez
   adres w Kędzierzynie-Koźlu, uwaga o wyjazdach do Ukrainy, profil na Facebooku
 - usunięte cookies: brak banera i polityki cookies — strona niczego nie zbiera
 
+## Poprawki klienta z 29.09.2026
+- wyższy kontrast: tekst w pełnym kolorze zamiast półprzezroczystego, Jost 400 zamiast 300, ciemniejsze złoto w etykietach
+- drugi numer: +380 685 758 215 (Ukraina) w kontakcie i stopce
+- link do strony biura: http://www.ukrainkisamotne.pl/ (kontakt, stopka, nagłówek regulaminu)
+- Instagram: miejsce przygotowane („profil już wkrótce”) — klient zakłada konto i przyśle link
+- Regulamin i RODO w menu na górze
+
 ## Do wdrożenia przed produkcją
+- bramka płatnicza: klient sam wykupuje konto u operatora i przekaże nam dane do integracji
+- Instagram: podmienić kafelek `.link-card--soon` na link, gdy klient przyśle adres
 - formularz: obecnie walidacja front-end + symulacja płatności. Docelowo Pages Function + Resend i realna bramka.
 - do potwierdzenia u klienta: zasięg pakietu 49 zł (na demie „sześć grup i dwie strony"; w tamtej wersji było „ok. 17 tysięcy Kobiet"),
   nazwy Standard/Premium w § 3 regulaminu, opinia wspominająca „Pakiet Premium" i doradcę.
